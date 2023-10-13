@@ -1,0 +1,49 @@
+@use "classes";
+%reset-input {
+  background: transparent !important;
+  border: 0 !important;
+  outline: 0 !important;
+  box-shadow: none !important;
+}
+
+%primary-orange {
+  font-family: "Rubik";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 3rem;
+  line-height: 150%;
+  color: $surface-text;
+}
+
+%left-title {
+  font-family: "Rubik";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 2.25rem;
+  line-height: 150%;
+  color: $surface-text;
+}
+
+%right-info {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  color: #606060;
+}
+
+%df-main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+%df-col-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+%bt-style {
+  background: black;
+  border-radius: 4px;
+}

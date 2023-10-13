@@ -1,0 +1,74 @@
+#dropdown-content {
+  position: fixed;
+  top: -100%;
+  left: 0;
+  z-index: 10;
+  width: 100%;
+  background: #fff;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.15);
+  padding: 40px 0;
+  transition: 0.3s ease-out;
+}
+
+#dropdown-content.visible {
+  transition: all 0.4s ease-out;
+  top: 72px;
+}
+
+
+
+body.dark{
+  .grid-item{
+    .active{
+      color: red !important;
+    }
+  }
+  #dropdown-content{
+    background: url('../../assets/images/dark-mode/nav-bg.png');
+    border-radius: 0px 0px 25px 25px;
+    .dropdown_box{
+      a{
+        color: #fff;
+        &:hover{
+          color: #17d369;
+        }
+      }
+    }
+  }
+}
+
+
+#btnGiveCommand{
+  position: fixed;
+  left: 20px;
+  bottom: 20px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 20;
+  @include media(550px){
+    bottom: 60px;
+    width: 40px;
+  }
+
+}
+
+@keyframes pulse-animation {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.2);
+  }
+  50% {
+    transform: scale(1.2);
+    box-shadow: 0 0 0 8px rgba(0, 0, 0, 0);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.2);
+  }
+}
+
+.button-active {
+  cursor: pointer;
+  animation: pulse-animation 1s infinite;
+}
