@@ -43,7 +43,6 @@ function handleSearch() {
 
   if (filteredProducts.length > 0 && search !== "") {
     searchResult.style.display = "flex";
-    // searchCount.textContent = filteredProducts.length.toString();
   } else {
     searchResult.style.display = "none";
   }

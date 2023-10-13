@@ -1,17 +1,19 @@
 const favoriteRow = document.querySelector("#favourite-row");
-const favouriteContainer = document.querySelector('.favourite_container')
+const favouriteContainer = document.querySelector(".favourite_container");
 
 function getFavCard(item) {
-    let { image, description, discount, name, price, id } = item;
-    let product = cartProducts.find((el) => el.id === id);
-    let isFavourite = favoriteProducts.find((el) => el.id === id);
-    return `<div id = "all-card-${id}" class="card parent-element">
+  let { image, description, discount, name, price, id } = item;
+  let product = cartProducts.find((el) => el.id === id);
+  let isFavourite = favoriteProducts.find((el) => el.id === id);
+  return `<div id = "all-card-${id}" class="card parent-element">
               <img
                 src="${image}"
                 alt="biscuit"
               />
               <label class="container__heart">
-              <input id = 'favoriteCheckbox-${id}' ${isFavourite ? "checked" : ""} type="checkbox"  onClick="addToFavoriteLatest(${id})"/>
+              <input id = 'favoriteCheckbox-${id}' ${
+    isFavourite ? "checked" : ""
+  } type="checkbox"  onClick="addToFavoriteLatest(${id})"/>
                 <div class="checkmark">
                   <svg viewBox="0 0 256 256">
                     <rect fill="none" height="256" width="256"></rect>
@@ -51,52 +53,32 @@ function getFavCard(item) {
                     onclick="increaseLatest(${id})"
                   >+</button></div>`
                     : `<button class = "add-to-cart-button btn_main" data-product-id="${id}" onclick = "addToCartLatest(${id})">В корзину
-                    <div class="star-1">
-                      <svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 784.11 815.53" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd" version="1.1" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"><defs></defs><g id="Layer_x0020_1"><metadata id="CorelCorpID_0Corel-Layer"></metadata><path d="M392.05 0c-20.9,210.08 -184.06,378.41 -392.05,407.78 207.96,29.37 371.12,197.68 392.05,407.74 20.93,-210.06 184.09,-378.37 392.05,-407.74 -207.98,-29.38 -371.16,-197.69 -392.06,-407.78z" class="fil0"></path></g></svg>
-                    </div>
-                    <div class="star-2">
-                      <svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 784.11 815.53" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd" version="1.1" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"><defs></defs><g id="Layer_x0020_1"><metadata id="CorelCorpID_0Corel-Layer"></metadata><path d="M392.05 0c-20.9,210.08 -184.06,378.41 -392.05,407.78 207.96,29.37 371.12,197.68 392.05,407.74 20.93,-210.06 184.09,-378.37 392.05,-407.74 -207.98,-29.38 -371.16,-197.69 -392.06,-407.78z" class="fil0"></path></g></svg>
-                    </div>
-                    <div class="star-3">
-                      <svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 784.11 815.53" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd" version="1.1" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"><defs></defs><g id="Layer_x0020_1"><metadata id="CorelCorpID_0Corel-Layer"></metadata><path d="M392.05 0c-20.9,210.08 -184.06,378.41 -392.05,407.78 207.96,29.37 371.12,197.68 392.05,407.74 20.93,-210.06 184.09,-378.37 392.05,-407.74 -207.98,-29.38 -371.16,-197.69 -392.06,-407.78z" class="fil0"></path></g></svg>
-                    </div>
-                    <div class="star-4">
-                      <svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 784.11 815.53" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd" version="1.1" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"><defs></defs><g id="Layer_x0020_1"><metadata id="CorelCorpID_0Corel-Layer"></metadata><path d="M392.05 0c-20.9,210.08 -184.06,378.41 -392.05,407.78 207.96,29.37 371.12,197.68 392.05,407.74 20.93,-210.06 184.09,-378.37 392.05,-407.74 -207.98,-29.38 -371.16,-197.69 -392.06,-407.78z" class="fil0"></path></g></svg>
-                    </div>
-                    <div class="star-5">
-                      <svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 784.11 815.53" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd" version="1.1" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"><defs></defs><g id="Layer_x0020_1"><metadata id="CorelCorpID_0Corel-Layer"></metadata><path d="M392.05 0c-20.9,210.08 -184.06,378.41 -392.05,407.78 207.96,29.37 371.12,197.68 392.05,407.74 20.93,-210.06 184.09,-378.37 392.05,-407.74 -207.98,-29.38 -371.16,-197.69 -392.06,-407.78z" class="fil0"></path></g></svg>
-                    </div>
-                    <div class="star-6">
-                      <svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 784.11 815.53" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd" version="1.1" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"><defs></defs><g id="Layer_x0020_1"><metadata id="CorelCorpID_0Corel-Layer"></metadata><path d="M392.05 0c-20.9,210.08 -184.06,378.41 -392.05,407.78 207.96,29.37 371.12,197.68 392.05,407.74 20.93,-210.06 184.09,-378.37 392.05,-407.74 -207.98,-29.38 -371.16,-197.69 -392.06,-407.78z" class="fil0"></path></g></svg>
-                    </div>
-                  </button>`
+            </button>`
                 }
               </div>
-            </div>`;       
-  }
-  
+            </div>`;
+}
 
+function getFavouriteOnes() {
+  const minPrice = parseInt(priceInput[0].value);
+  const maxPrice = parseInt(priceInput[1].value);
 
-  function getFavouriteOnes() {
-    const minPrice = parseInt(priceInput[0].value);
-    const maxPrice = parseInt(priceInput[1].value);
-  
-    favoriteRow.innerHTML = "";
-  
-    const filteredFavorites = favoriteProducts.filter(product => {
-      return product.price >= minPrice && product.price <= maxPrice;
+  favoriteRow.innerHTML = "";
+
+  const filteredFavorites = favoriteProducts.filter((product) => {
+    return product.price >= minPrice && product.price <= maxPrice;
+  });
+
+  if (filteredFavorites.length !== 0) {
+    filteredFavorites.forEach((el) => {
+      favoriteRow.innerHTML += getFavCard(el);
     });
-  
-    if (filteredFavorites.length !== 0) {
-      filteredFavorites.forEach(el => {
-        favoriteRow.innerHTML += getFavCard(el);
-      });
-      favoriteRow.classList.remove("empty");
-      favouriteContainer.classList.remove('empty');
-    } else {
-      favoriteRow.classList.add("empty");
-      favouriteContainer.classList.add('empty');
-      favoriteRow.innerHTML = `
+    favoriteRow.classList.remove("empty");
+    favouriteContainer.classList.remove("empty");
+  } else {
+    favoriteRow.classList.add("empty");
+    favouriteContainer.classList.add("empty");
+    favoriteRow.innerHTML = `
         <div class="alert alert-info" role="alert">
         <div class="empty-cart empty_basket">
         <?xml version="1.0" encoding="iso-8859-1"?>
@@ -125,30 +107,26 @@ function getFavCard(item) {
       </div>
         </div>
       `;
-    }
   }
-  getFavouriteOnes();
-
-
-
+}
+getFavouriteOnes();
 
 function addToCartLatest(id) {
-    addToCart(id);
-    getFavouriteOnes();
-}
-  
-  function increaseLatest(id) {
-    increase(id);
-    getFavouriteOnes();
-}
-  
-  function decreaseLatest(id) {
-    decrease(id);
-    getFavouriteOnes();
-  }
-  
-function addToFavoriteLatest(id) {
-    addToFavorite(id);
-    getFavouriteOnes();
+  addToCart(id);
+  getFavouriteOnes();
 }
 
+function increaseLatest(id) {
+  increase(id);
+  getFavouriteOnes();
+}
+
+function decreaseLatest(id) {
+  decrease(id);
+  getFavouriteOnes();
+}
+
+function addToFavoriteLatest(id) {
+  addToFavorite(id);
+  getFavouriteOnes();
+}
